@@ -9,11 +9,14 @@ int main()
   int i = 1;
   while (i <= n)
   {
+    int k = n;
     int j = 1;
     while (j <= n)
     {
-      cout << n << " ";
+      // cout << n << " ";
+      cout << k << " ";
       j++;
+      k--;
     }
     cout << endl;
     i++;
