@@ -10,9 +10,10 @@ int main()
   while (i <= n)
   {
     int j = 1;
+    int k = i;
     while (j <= i)
     {
-      cout << "*"
+      cout << k
            << " ";
 
       j++;
