@@ -13,10 +13,14 @@ int length(char input[])
 
 int main()
 {
-  char name[100];
-  cout << "Enter your name : " << endl;
-  cin >> name;
-  cout << "Name : " << name << endl;
-  int ans = length(name);
-  cout << ans << endl;
+  // char name[100];
+  // cout << "Enter your name : " << endl;
+  // cin >> name;
+  // cout << "Name : " << name << endl;
+  // int ans = length(name);
+  // cout << ans << endl;
+  char c[100];
+  cout << "Enter characters : " << endl;
+  cin.getline(c, 100);
+  cout << c << endl;
 }
