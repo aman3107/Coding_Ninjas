@@ -9,8 +9,11 @@ int main()
   cin.getline(ch, 1000);
   for (int i = 0; ch[i] != '\0'; i++)
   {
-    for (int j = 0; j <= i; j++)
-      cout << ch[j] << " ";
-    cout << endl;
+    for (int j = 0; ch[j] != '\0'; j++)
+    {
+      for (int k = i; k <= j; k++)
+        cout << ch[k] << " ";
+      cout << endl;
+    }
   }
 }
