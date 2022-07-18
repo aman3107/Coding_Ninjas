@@ -24,4 +24,6 @@ int main()
     cin >> arr[i];
   bool ans = is_array_sorted(arr, n);
   cout << ans << endl;
+
+  delete[] arr;
 }
