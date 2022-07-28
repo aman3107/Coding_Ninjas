@@ -6,10 +6,10 @@ int all_index(int arr[], int n, int x, int output[])
   if (n == 0)
     return 0;
 
-  int ans = all_index(arr + 1, n - 1, x, output);
-  if (arr[0] == x)
+  int ans = all_index(arr, n - 1, x, output);
+  if (arr[n - 1] == x)
   {
-    output[ans] = n;
+    output[ans] = n - 1;
     return ans + 1;
   }
   return ans;
