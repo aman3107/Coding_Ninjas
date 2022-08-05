@@ -56,6 +56,8 @@ void MergeSort(int *arr, int l, int r)
   Merge(arr, l, mid, r);
 }
 
+/* Worst Approach for the problem*/
+
 int FindDuplicate(int *arr, int n)
 {
   MergeSort(arr, 0, n - 1);
@@ -67,6 +69,19 @@ int FindDuplicate(int *arr, int n)
       return arr[i];
     }
   }
+}
+
+/* Best Approach for the problem */
+
+int findDuplicate(int *arr, int n)
+{
+  int sum = 0;
+  for (int i = 0; i < n; i++)
+  {
+    sum = sum + arr[i];
+  }
+
+  return sum - ((n - 2) * (n - 1)) / 2;
 }
 
 int main()
@@ -82,11 +97,6 @@ int main()
   }
 
   cout << FindDuplicate(arr, n) << endl;
-
-  for (int i = 0; i < n; i++)
-  {
-    cout << arr[i] << " ";
-  }
-  cout << endl;
+  cout << findDuplicate(arr, n) << endl;
   delete[] arr;
 }
