@@ -2,6 +2,8 @@
 #include <algorithm>
 using namespace std;
 
+/* Worst Approach for problem */
+
 void Intersection(int *arr1, int *arr2, int n, int m)
 {
   int arr3[n];
@@ -24,6 +26,8 @@ void Intersection(int *arr1, int *arr2, int n, int m)
   }
   cout << endl;
 }
+
+/* Best Approach for prooblem */
 
 void intersection(int *arr1, int *arr2, int n, int m)
 {
