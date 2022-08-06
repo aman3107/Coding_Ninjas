@@ -28,7 +28,6 @@ int Pair_Sum(int *arr, int n, int num)
       {
         int cnt = (e - s) + 1;
         count = count + (cnt * (cnt - 1)) / 2;
-        return count;
       }
 
       else
