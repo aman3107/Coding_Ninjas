@@ -36,7 +36,10 @@ int main()
   Student s5(18, "Payal");
   cout << "s5 age : " << s5.getAge() << endl;
   cout << "s5 name : " << s5.name << endl;
+
+  Student s6(s5);
   s1.display();
   s2->display();
   s5.display();
+  s6.display();
 }

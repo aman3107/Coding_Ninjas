@@ -12,6 +12,12 @@ private:
 
 public:
   // Default Constructor
+
+  ~Student()
+  {
+    cout << "Destructor Called : " << endl;
+  }
+
   Student()
   {
     cout << "Constructor Called : " << endl;
@@ -29,6 +35,13 @@ public:
     cout << "Constructor 3 called : " << endl;
     age = a;
     name = s;
+  }
+
+  Student(int x, int y)
+  {
+    cout << "Constructor 4 called " << endl;
+    age = x;
+    rollNumber = y;
   }
 
   void display()
