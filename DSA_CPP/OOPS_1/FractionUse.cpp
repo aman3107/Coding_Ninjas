@@ -9,4 +9,7 @@ int main()
   f1.multiply(f2);
   f1.simplfy();
   f1.print();
+
+  Fraction const f3;
+  cout << f3.getNumerator() << " " << f3.getDenominator() << endl;
 }
