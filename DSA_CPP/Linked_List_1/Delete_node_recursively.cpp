@@ -49,29 +49,20 @@ void print(Node *head)
   cout << endl;
 }
 
-Node *del(Node *head, int i)
+Node *del(Node *head, int pos)
 {
-  Node *temp = head;
-  int c = 1;
   if (head == NULL)
     return head;
-  if (i == 0)
+  if (pos == 0)
   {
-    head = head->next;
+    Node *a = head;
+    head = a->next;
+    delete a;
+    return head;
   }
   else
   {
-    while (temp->next != NULL && c < i)
-    {
-      temp = temp->next;
-      c++;
-    }
-    if (temp->next != NULL)
-    {
-      Node *a = temp->next;
-      temp->next = a->next;
-      delete a;
-    }
+    head->next = del(head->next, pos - 1);
   }
   return head;
 }
@@ -79,9 +70,12 @@ Node *del(Node *head, int i)
 int main()
 {
   Node *head = takeInput();
+  cout << "before delete " << endl;
   print(head);
   int index;
+  cout << "Enter index " << endl;
   cin >> index;
+  cout << "After delete " << endl;
   head = del(head, index);
   print(head);
 }
