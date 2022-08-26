@@ -50,14 +50,16 @@ void print(Node *head)
   cout << endl;
 }
 
-Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2)
+Node *merge(Node *head1, Node *head2)
 {
   if (head1 == NULL)
     return head2;
   if (head2 == NULL)
     return head1;
+
   Node *fh = NULL;
   Node *ft = NULL;
+
   if (fh == NULL && ft == NULL)
   {
     if (head1->data < head2->data)
@@ -103,11 +105,33 @@ Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2)
   return fh;
 }
 
+Node *mergeSort(Node *head)
+{
+  // Write your code here
+  if (head == NULL || head->next == NULL)
+  {
+    return head;
+  }
+  Node *slow = head;
+  Node *fast = head->next;
+
+  while (fast != NULL && fast->next != NULL)
+  {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  Node *head1 = head;
+  Node *head2 = slow->next;
+  slow->next = NULL;
+  head1 = mergeSort(head1);
+  head2 = mergeSort(head2);
+  head = merge(head1, head2);
+  return head;
+}
+
 int main()
 {
-  Node *head1 = takeInput();
-  Node *head2 = takeInput();
-  Node *head3 = mergeTwoSortedLinkedLists(head1, head2);
-  print(head3);
-  delete head1, head2, head3;
+  Node *head = takeInput();
+  head = mergeSort(head);
+  print(head);
 }
