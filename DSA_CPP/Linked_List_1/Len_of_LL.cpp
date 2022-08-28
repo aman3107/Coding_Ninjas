@@ -55,13 +55,6 @@ int length(Node *head)
   if (temp == NULL)
     return 0;
   return 1 + length(temp->next);
-  //     int c = 0;
-  //   while (temp != NULL)
-  //   {
-  //     c++;
-  //     temp = temp->next;
-  //   }
-  //   return c;
 }
 
 int main()
