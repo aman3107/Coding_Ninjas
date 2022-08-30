@@ -1,21 +1,23 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
+
 class Node
 {
 public:
-  int data;
-  Node *next;
-  Node(int data)
+  T data;
+  Node<T> *next;
+  Node(T data)
   {
     this->data = data;
     this->next = NULL;
   }
 };
-
+template <typename T>
 class StackUsingLL
 {
-  Node *head;
+  Node<T> *head;
   int size;
 
 public:
@@ -25,9 +27,9 @@ public:
     size = 0;
   }
 
-  void push(int element)
+  void push(T element)
   {
-    Node *newNode = new Node(element);
+    Node<T> *newNode = new Node<T>(element);
     if (head == NULL)
     {
       head = newNode;
@@ -58,8 +60,8 @@ public:
     }
     else
     {
-      int ans = head->data;
-      Node *temp = head;
+      T ans = head->data;
+      Node<T> *temp = head;
       head = head->next;
       delete temp;
       size--;
