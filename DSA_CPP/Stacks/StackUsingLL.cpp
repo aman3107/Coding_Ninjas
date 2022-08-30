@@ -59,7 +59,9 @@ public:
     else
     {
       int ans = head->data;
+      Node *temp = head;
       head = head->next;
+      delete temp;
       size--;
       return ans;
     }
