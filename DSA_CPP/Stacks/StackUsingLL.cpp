@@ -51,7 +51,7 @@ public:
       return false;
   }
 
-  int pop()
+  T pop()
   {
     if (isEmpty())
     {
@@ -69,7 +69,7 @@ public:
     }
   }
 
-  int top()
+  T top()
   {
     if (isEmpty())
     {
