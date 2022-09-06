@@ -49,20 +49,21 @@ void print(TreeNode<int> *root)
   }
 }
 
-int numNodes(TreeNode<int> *root)
+int getLargeNodeCount(TreeNode<int> *root, int x)
 {
-  int ans = 1;
+  // Write your code here
+  int count = 0;
+  if (root->data > x)
+    count++;
   for (int i = 0; i < root->children.size(); i++)
   {
-    ans += numNodes(root->children[i]);
+    count += getLargeNodeCount(root->children[i], x);
   }
-  return ans;
+  return count;
 }
 
 int main()
 {
   TreeNode<int> *root = takeInput();
-  print(root);
-  cout << numNodes(root) << endl;
-  delete root;
+  cout << getLargeNodeCount(root, 35) << endl;
 }
