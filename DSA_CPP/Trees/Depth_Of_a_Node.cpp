@@ -70,8 +70,7 @@ void printAtLevelK(TreeNode<int> *root, int k)
 int main()
 {
   TreeNode<int> *root = takeInput();
-  cout << getLeafNodeCount(root) << endl;
-  // printAtLevelK(root, 3);
-  // print(root);
+  printAtLevelK(root, 3);
+  print(root);
   delete root;
 }
