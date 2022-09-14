@@ -1,6 +1,7 @@
 #include <iostream>
 #include "BTreeNode.h"
 #include <climits>
+#include <queue>
 using namespace std;
 
 class BST
@@ -37,11 +38,11 @@ private:
       BTreeNode<int> *root = new BTreeNode<int>(data);
       return root;
     }
-    if (root->data > data)
+    if (root->data >= data)
     {
       root->left = insertHelper(data, root->left);
     }
-    else
+    else if (data > root->data)
     {
       root->right = insertHelper(data, root->right);
     }
@@ -103,8 +104,26 @@ private:
     }
   }
 
+  void printHelper(BTreeNode<int> *root)
+  {
+    if (root == NULL)
+      return;
+    cout << root->data << ":";
+    if (root->left != NULL)
+    {
+      cout << "L:" << root->left->data << ",";
+    }
+    if (root->right != NULL)
+    {
+      cout << "R:" << root->right->data << ",";
+    }
+    cout << endl;
+    printHelper(root->left);
+    printHelper(root->right);
+  }
+
 public:
-  bool hasData(int data)
+  bool search(int data)
   {
     return hasDataHelper(data, root);
   }
@@ -117,5 +136,10 @@ public:
   void remove(int data)
   {
     root = removeHelper(data, root);
+  }
+
+  void print()
+  {
+    printHelper(root);
   }
 };
