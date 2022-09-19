@@ -14,6 +14,12 @@ int main()
   p1.insert(0);
   p1.print();
 
-  cout << p1.removeMin() << endl;
-  p1.print();
+  // cout << p1.removeMin() << endl;
+  // p1.print();
+
+  while (!p1.isEmpty())
+  {
+    cout << p1.removeMin() << " ";
+  }
+  cout << endl;
 }
