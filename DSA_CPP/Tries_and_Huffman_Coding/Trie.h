@@ -1,5 +1,6 @@
 #include "TrieNode.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 class Trie
 {
@@ -33,7 +34,11 @@ public:
   }
   void insertWord(string word)
   {
-    insertWord(root, word);
+    while (word.size() != 0)
+    {
+      insertWord(root, word);
+      word = word.substr(1);
+    }
   }
 
   bool searchWord(TrieNode *root, string word)
@@ -51,6 +56,29 @@ public:
     {
       child = root->children[index];
       ans = searchWord(child, word.substr(1));
+    }
+    else
+    {
+      ans = false;
+    }
+    return ans;
+  }
+
+  bool searchWordPatternMatching(TrieNode *root, string word)
+  {
+    if (word.size() == 0)
+    {
+      bool ans = true;
+      return ans;
+    }
+
+    int index = word[0] - 'a';
+    TrieNode *child;
+    bool ans = true;
+    if (root->children[index] != NULL)
+    {
+      child = root->children[index];
+      ans = searchWordPatternMatching(child, word.substr(1));
     }
     else
     {
@@ -96,5 +124,19 @@ public:
   void removeWord(string word)
   {
     removeWord(root, word);
+  }
+  bool patternMatching(vector<string> vect, string pattern)
+  {
+    for (int i = 0; i < vect.size(); i++)
+    {
+      string word = vect[i];
+
+      while (word.size() != 0)
+      {
+        insertWord(word);
+        word = word.substr(1);
+      }
+    }
+    return searchWordPatternMatching(root, pattern);
   }
 };

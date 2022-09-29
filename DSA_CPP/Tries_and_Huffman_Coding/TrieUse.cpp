@@ -12,4 +12,5 @@ int main()
   t.removeWord("do");
   cout << t.searchWord("do") << endl;
   cout << t.searchWord("and") << endl;
+  cout << t.searchWord("re") << endl;
 }
