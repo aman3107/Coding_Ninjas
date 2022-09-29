@@ -8,5 +8,8 @@ int main()
   t.insertWord("are");
   t.insertWord("and");
   t.insertWord("do");
-  cout << t.searchWord("dot") << endl;
+  cout << t.searchWord("do") << endl;
+  t.removeWord("do");
+  cout << t.searchWord("do") << endl;
+  cout << t.searchWord("and") << endl;
 }
