@@ -34,11 +34,8 @@ public:
   }
   void insertWord(string word)
   {
-    while (word.size() != 0)
-    {
-      insertWord(root, word);
-      word = word.substr(1);
-    }
+
+    insertWord(root, word);
   }
 
   bool searchWord(TrieNode *root, string word)
@@ -138,5 +135,38 @@ public:
       }
     }
     return searchWordPatternMatching(root, pattern);
+  }
+
+  bool isPalindromePair(vector<string> words)
+  {
+    vector<string> reverseWord;
+
+    for (int i = 0; i < words.size(); i++)
+    {
+      string word = words[i];
+      insertWord(word);
+      string str = reverse(word);
+      reverseWord.push_back(str);
+      str = reverse(word.substr(1));
+      reverseWord.push_back(str);
+      str = reverse(word.substr(0, word.size() - 1));
+      reverseWord.push_back(str);
+    }
+    for (int i = 0; i < reverseWord.size(); i++)
+    {
+      bool ans = searchWord(reverseWord[i]);
+      if (ans == true)
+        return true;
+    }
+    return false;
+  }
+  string reverse(string word)
+  {
+    string str;
+    for (int i = word.length() - 1; i >= 0; i--)
+    {
+      str = str + word[i];
+    }
+    return str;
   }
 };

@@ -6,6 +6,7 @@ public:
   char data;
   TrieNode **children;
   bool isTerminal;
+  int childcount;
   TrieNode(char data)
   {
     this->data = data;
@@ -15,5 +16,6 @@ public:
       children[i] = NULL;
     }
     isTerminal = false;
+    this->childcount = 0;
   }
 };
