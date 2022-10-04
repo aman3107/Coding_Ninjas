@@ -1,2 +1,2 @@
 # Coding_Ninjas_CPP
-This is repository of Coding Ninjas DSA in CPP Language.
+This is a repository of Coding Ninjas DSA in CPP Language.
