@@ -56,13 +56,10 @@ void Kruskal(Edge *input, int n, int e)
     {
       output[count] = currentEdge;
       count++;
-      i++;
       parent[v1p] = v2p;
     }
-    else
-    {
-      i++;
-    }
+
+    i++;
   }
   for (int i = 0; i < n - 1; i++)
   {
